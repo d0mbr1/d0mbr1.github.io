@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pencil Search</title>
+</head>
+<body>
+    <h2>Search for Pencils</h2>
+    <input type="text" id="search" placeholder="Enter user or pencil name">
+    <button onclick="searchPencils()">Search</button>
+    <div id="results"></div>
+
+    <script>
+        const scriptUrl = "YOUR_GOOGLE_SCRIPT_URL"; // Replace with your Google Apps Script URL
+
+        function searchPencils() {
+            let query = document.getElementById("search").value;
+            fetch(scriptUrl + "?query=" + query)
+            .then(response => response.json())
+            .then(data => {
+                let output = "<table border='1'><tr><th>ID</th><th>User</th><th>Pencil</th><th>Count</th></tr>";
+                data.forEach(row => {
+                    output += `<tr><td>${row.id}</td><td>${row.user}</td><td>${row.pencil}</td><td>${row.count}</td></tr>`;
+                });
+                output += "</table>";
+                document.getElementById("results").innerHTML = output;
+            })
+            .catch(error => console.error("Error:", error));
+        }
+    </script>
+</body>
+</html>
