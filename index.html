@@ -28,7 +28,7 @@
         const scriptUrl = "https://script.google.com/macros/s/AKfycbw09YhkQLCRlK9n4WGztCKYl51YyapefITV86SOIiioi-5ZNjNbOmF3yVgkRtGvsAD3fw/exec"; // Replace with your Google Apps Script URL
 
         function searchPencils2() {
-            document.getElementById(document.getElementById("results2").innerHTML).innerHTML = "Searching Data...";
+            document.getElementById("results2").innerHTML = "Searching Data...";
         }
         
         function searchPencils() {
@@ -43,7 +43,7 @@
                     output += `<tr><td>${row.id}</td><td>${row.user}</td><td>${row.pencil}</td><td>${row.count}</td></tr>`;
                 });
                 output += "</table>";
-                document.getElementById(document.getElementById("results").innerHTML).innerHTML = output;
+                document.getElementById("results").innerHTML = output;
             })
             .catch(error => console.error("Error:", error));
         }
