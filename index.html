@@ -32,7 +32,7 @@
         }
         
         function searchPencils(event) {
-
+            event.preventDefault();
             
             let query = document.getElementById("search").value;
             fetch(scriptUrl + "?query=" + query)
