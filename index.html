@@ -7,13 +7,13 @@
 </head>
 <body>
     <h2>Search for Pencils</h2>
-    <form id="myForm" onsubmit="searchPencils2(event)">
+    <form id="myForm" onsubmit="searchPencils(event)">
     <input type="text" id="search" name="search2" placeholder="Enter user or pencil name">
     <button type="submit">Submit</button>
     </form>
 
 <h2>Search for Pencils222222</h2>
-    <form id="myForm2" onsubmit="searchPencils4()">
+    <form id="myForm2" onsubmit="searchPencils22()">
     <input type="text" id="search" name="search2" placeholder="Enter user or pencil name">
     <button type="submit">Submit2</button>
     </form>
@@ -72,7 +72,7 @@
     </script>
 
     <script>
-        // let scriptUrl = "https://script.google.com/macros/s/AKfycbw09YhkQLCRlK9n4WGztCKYl51YyapefITV86SOIiioi-5ZNjNbOmF3yVgkRtGvsAD3fw/exec"; // Replace with your Google Apps Script URL
+        let scriptUrl = "https://script.google.com/macros/s/AKfycbw09YhkQLCRlK9n4WGztCKYl51YyapefITV86SOIiioi-5ZNjNbOmF3yVgkRtGvsAD3fw/exec"; // Replace with your Google Apps Script URL
 
         function searchPencils2(event) {
             event.preventDefault(); 
@@ -81,14 +81,14 @@
         }
         
         function searchPencils(event) {
-            
+            event.preventDefault();
             
             let query = document.getElementById("search").value;
              
             document.getElementById("results2").innerHTML = scriptUrl + "?query=" + query;
             
             // event.preventDefault();
-            /*
+            
             fetch(scriptUrl + "?query=" + query)
             .then(response => response.json())
             .then(data => {
@@ -99,7 +99,7 @@
                 output += "</table>";
                 document.getElementById("results").innerHTML = output;
             })
-            .catch(error => console.error("Error:", error));*/
+            .catch(error => console.error("Error:", error));
         }
     </script>
 </body>
