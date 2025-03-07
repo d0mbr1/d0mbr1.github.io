@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>Search for Pencils</h2>
-    <form>
+    <form id="myForm" onsubmit="searchPencils(event)">
     <input type="text" id="search" placeholder="Enter user or pencil name">
     <button type="button" onclick="searchPencils()">Search</button>
     </form>
@@ -31,7 +31,7 @@
             document.getElementById("results2").innerHTML = "Searching Data...";
         }
         
-        function searchPencils() {
+        function searchPencils(event) {
 
             
             let query = document.getElementById("search").value;
