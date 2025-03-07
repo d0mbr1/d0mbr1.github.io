@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>Search for Pencils</h2>
-    <form id="myForm" onsubmit="searchPencils22(event)">
+    <form id="myForm" onsubmit="searchPencils(event)">
     <input type="text" id="search" name="search" placeholder="Enter user or pencil name">
     <button type="submit">Submit</button>
     </form>
@@ -73,9 +73,14 @@
         }
         
         function searchPencils(event) {
-            event.preventDefault();
+            
             
             let query = document.getElementById("search").value;
+             
+            document.getElementById("results2").innerHTML = scriptUrl + "?query=" + query;
+            
+            // event.preventDefault();
+            
             fetch(scriptUrl + "?query=" + query)
             .then(response => response.json())
             .then(data => {
