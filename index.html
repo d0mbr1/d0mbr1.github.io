@@ -7,12 +7,53 @@
 </head>
 <body>
     <h2>Search for Pencils</h2>
-    <form id="myForm" onsubmit="searchPencils(event)">
-    <input type="text" id="search" placeholder="Enter user or pencil name">
+    <form id="myForm" onsubmit="searchPencils22(event)">
+    <input type="text" id="search" name="search" placeholder="Enter user or pencil name">
     <button type="submit">Submit</button>
     </form>
         <div id="results"></div>
     <div id="results2"></div>
+
+ 
+    <script>
+        
+        const scriptUrl = "https://script.google.com/macros/s/AKfycbw09YhkQLCRlK9n4WGztCKYl51YyapefITV86SOIiioi-5ZNjNbOmF3yVgkRtGvsAD3fw/exec";
+
+        async function searchPencils22(event) {
+            event.preventDefault(); // Prevent page reload
+
+            const query = document.getElementById("search").value;
+            const resultDiv = document.getElementById("result");
+
+            if (!username) {
+                resultDiv.innerHTML = "Please enter a username.";
+                return;
+            }
+
+            try {
+                // Replace with an actual API URL that accepts a username query
+                const response = await fetch( scriptUrl + "?query=" + query );
+                
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+
+                const data = await response.json();
+
+                if (data.length === 0) {
+                    resultDiv.innerHTML = "No user found.";
+                    return;
+                }
+
+                // Display user data
+                const user = data[0]; // Assuming the API returns an array
+                resultDiv.innerHTML = user;
+
+            } catch (error) {
+                resultDiv.innerHTML = "Error fetching data: " + error.message;
+            }
+        }
+    </script>
 
 
     <script>
