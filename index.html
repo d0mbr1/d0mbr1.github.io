@@ -8,16 +8,20 @@
 <body>
     <h2>Search for Pencils</h2>
     <input type="text" id="search" placeholder="Enter user or pencil name">
-    <button onclick="searchPencils()">Search</button>
+    <button onclick="searchPencils2()">Search</button>
     <div id="results"></div>
     <div id="results2"></div>
 
     <script>
         const scriptUrl = "https://script.google.com/macros/s/AKfycbw09YhkQLCRlK9n4WGztCKYl51YyapefITV86SOIiioi-5ZNjNbOmF3yVgkRtGvsAD3fw/exec"; // Replace with your Google Apps Script URL
 
+        function searchPencils2() {
+            document.getElementById(document.getElementById("results2").innerHTML).innerHTML = "Searching Data...";
+        }
+        
         function searchPencils() {
 
-            document.getElementById(document.getElementById("results2").innerHTML).innerHTML = "Searching Data...";
+            
             let query = document.getElementById("search").value;
             fetch(scriptUrl + "?query=" + query)
             .then(response => response.json())
