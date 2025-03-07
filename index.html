@@ -17,7 +17,7 @@
 
         function searchPencils() {
 
-            document.getElementById("results2"document.getElementById("results").innerHTML).innerHTML = "Searching Data...";
+            document.getElementById(document.getElementById("results2").innerHTML).innerHTML = "Searching Data...";
             let query = document.getElementById("search").value;
             fetch(scriptUrl + "?query=" + query)
             .then(response => response.json())
@@ -27,7 +27,7 @@
                     output += `<tr><td>${row.id}</td><td>${row.user}</td><td>${row.pencil}</td><td>${row.count}</td></tr>`;
                 });
                 output += "</table>";
-                document.getElementById("results"document.getElementById("results").innerHTML).innerHTML = output;
+                document.getElementById(document.getElementById("results").innerHTML).innerHTML = output;
             })
             .catch(error => console.error("Error:", error));
         }
